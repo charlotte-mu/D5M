@@ -1,0 +1,10 @@
+
+State Machine - |TOP|I2C_ctrl:add1|fsm
+Name fsm.110 fsm.101 fsm.100 fsm.011 fsm.010 fsm.001 fsm.000 
+fsm.000 0 0 0 0 0 0 0 
+fsm.001 0 0 0 0 0 1 1 
+fsm.010 0 0 0 0 1 0 1 
+fsm.011 0 0 0 1 0 0 1 
+fsm.100 0 0 1 0 0 0 1 
+fsm.101 0 1 0 0 0 0 1 
+fsm.110 1 0 0 0 0 0 1 

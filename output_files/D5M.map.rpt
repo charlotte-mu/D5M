@@ -1,5 +1,5 @@
 Analysis & Synthesis report for D5M
-Sun Dec 02 22:33:34 2018
+Sat Dec 08 17:06:34 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
 
 
@@ -10,7 +10,19 @@ Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |TOP|I2C_ctrl:add1|fsm
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: divider:add3
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -37,20 +49,20 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sun Dec 02 22:33:34 2018           ;
+; Analysis & Synthesis Status        ; Successful - Sat Dec 08 17:06:34 2018       ;
 ; Quartus Prime Version              ; 17.0.2 Build 602 07/19/2017 SJ Lite Edition ;
 ; Revision Name                      ; D5M                                         ;
 ; Top-level Entity Name              ; TOP                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 195                                         ;
+;     Total combinational functions  ; 193                                         ;
+;     Dedicated logic registers      ; 35                                          ;
+; Total registers                    ; 35                                          ;
+; Total pins                         ; 4                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -145,15 +157,203 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                               ;
++----------------------------------+-----------------+------------------------+------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------+---------+
+; TOP.v                            ; yes             ; User Verilog HDL File  ; D:/FPGA/D5M/TOP.v            ;         ;
+; I2C_ctrl.v                       ; yes             ; User Verilog HDL File  ; D:/FPGA/D5M/I2C_ctrl.v       ;         ;
+; D5M_rom.v                        ; yes             ; User Verilog HDL File  ; D:/FPGA/D5M/D5M_rom.v        ;         ;
+; divider.v                        ; yes             ; User Verilog HDL File  ; D:/FPGA/D5M/divider.v        ;         ;
++----------------------------------+-----------------+------------------------+------------------------------+---------+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimated Total logic elements              ; 195                      ;
+;                                             ;                          ;
+; Total combinational functions               ; 193                      ;
+; Logic element usage by number of LUT inputs ;                          ;
+;     -- 4 input functions                    ; 130                      ;
+;     -- 3 input functions                    ; 21                       ;
+;     -- <=2 input functions                  ; 42                       ;
+;                                             ;                          ;
+; Logic elements by mode                      ;                          ;
+;     -- normal mode                          ; 174                      ;
+;     -- arithmetic mode                      ; 19                       ;
+;                                             ;                          ;
+; Total registers                             ; 35                       ;
+;     -- Dedicated logic registers            ; 35                       ;
+;     -- I/O registers                        ; 0                        ;
+;                                             ;                          ;
+; I/O pins                                    ; 4                        ;
+;                                             ;                          ;
+; Embedded Multiplier 9-bit elements          ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; I2C_ctrl:add1|add_con[0] ;
+; Maximum fan-out                             ; 56                       ;
+; Total fan-out                               ; 786                      ;
+; Average fan-out                             ; 3.32                     ;
++---------------------------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |TOP                       ; 193 (1)             ; 35 (0)                    ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |TOP                ; TOP         ; work         ;
+;    |I2C_ctrl:add1|         ; 170 (170)           ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|I2C_ctrl:add1  ; I2C_ctrl    ; work         ;
+;    |divider:add3|          ; 22 (22)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|divider:add3   ; divider     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |TOP|I2C_ctrl:add1|fsm                                        ;
++---------+---------+---------+---------+---------+---------+---------+---------+
+; Name    ; fsm.110 ; fsm.101 ; fsm.100 ; fsm.011 ; fsm.010 ; fsm.001 ; fsm.000 ;
++---------+---------+---------+---------+---------+---------+---------+---------+
+; fsm.000 ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ;
+; fsm.001 ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 1       ;
+; fsm.010 ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 1       ;
+; fsm.011 ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 1       ;
+; fsm.100 ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 1       ;
+; fsm.101 ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; fsm.110 ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
++---------+---------+---------+---------+---------+---------+---------+---------+
+
+
++----------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                         ;
++----------------------------------------+-----------------------------------+
+; Register name                          ; Reason for Removal                ;
++----------------------------------------+-----------------------------------+
+; divider:add3|data2[6]                  ; Merged with divider:add3|data1[6] ;
+; divider:add3|data2[5]                  ; Merged with divider:add3|data1[5] ;
+; divider:add3|data2[4]                  ; Merged with divider:add3|data1[4] ;
+; divider:add3|data2[3]                  ; Merged with divider:add3|data1[3] ;
+; divider:add3|data2[2]                  ; Merged with divider:add3|data1[2] ;
+; divider:add3|data2[0]                  ; Merged with divider:add3|data1[0] ;
+; divider:add3|data2[9]                  ; Merged with divider:add3|data1[9] ;
+; divider:add3|data2[8]                  ; Merged with divider:add3|data1[8] ;
+; divider:add3|data2[7]                  ; Merged with divider:add3|data1[7] ;
+; divider:add3|data2[1]                  ; Merged with divider:add3|data1[1] ;
+; I2C_ctrl:add1|fsm~4                    ; Lost fanout                       ;
+; I2C_ctrl:add1|fsm~5                    ; Lost fanout                       ;
+; I2C_ctrl:add1|fsm~6                    ; Lost fanout                       ;
+; I2C_ctrl:add1|fsm.110                  ; Lost fanout                       ;
+; divider:add3|r1                        ; Merged with divider:add3|r2       ;
+; Total Number of Removed Registers = 15 ;                                   ;
++----------------------------------------+-----------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                       ;
++---------------------+--------------------+----------------------------------------+
+; Register name       ; Reason for Removal ; Registers Removed due to This Register ;
++---------------------+--------------------+----------------------------------------+
+; I2C_ctrl:add1|fsm~6 ; Lost Fanouts       ; I2C_ctrl:add1|fsm.110                  ;
++---------------------+--------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 35    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 34    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 15    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; I2C_ctrl:add1|add_con[2]               ; 38      ;
+; I2C_ctrl:add1|add_con[1]               ; 30      ;
+; I2C_ctrl:add1|add_con[0]               ; 56      ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP|I2C_ctrl:add1|mode[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divider:add3 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; cnt            ; 125   ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 4                           ;
+; cycloneiii_ff         ; 35                          ;
+;     CLR               ; 19                          ;
+;     ENA CLR           ; 15                          ;
+;     plain             ; 1                           ;
+; cycloneiii_io_obuf    ; 2                           ;
+; cycloneiii_lcell_comb ; 193                         ;
+;     arith             ; 19                          ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 174                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 130                         ;
+;                       ;                             ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 5.88                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -162,22 +362,51 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
-    Info: Processing started: Sun Dec 02 22:33:21 2018
+    Info: Processing started: Sat Dec 08 17:06:19 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off D5M -c D5M
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
     Info (12023): Found entity 1: TOP File: D:/FPGA/D5M/TOP.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file i2c_ctrl.v
     Info (12023): Found entity 1: I2C_ctrl File: D:/FPGA/D5M/I2C_ctrl.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file d5m_rom.v
     Info (12023): Found entity 1: D5M_rom File: D:/FPGA/D5M/D5M_rom.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file divider.v
+    Info (12023): Found entity 1: divider File: D:/FPGA/D5M/divider.v Line: 1
 Info (12127): Elaborating entity "TOP" for the top level hierarchy
-Error (12061): Can't synthesize current design -- Top partition does not contain any logic
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4730 megabytes
-    Error: Processing ended: Sun Dec 02 22:33:34 2018
-    Error: Elapsed time: 00:00:13
-    Error: Total CPU time (on all processors): 00:00:29
+Info (12128): Elaborating entity "divider" for hierarchy "divider:add3" File: D:/FPGA/D5M/TOP.v Line: 22
+Info (12128): Elaborating entity "I2C_ctrl" for hierarchy "I2C_ctrl:add1" File: D:/FPGA/D5M/TOP.v Line: 34
+Warning (10240): Verilog HDL Always Construct warning at I2C_ctrl.v(20): inferring latch(es) for variable "address_ba", which holds its previous value in one or more paths through the always construct File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Warning (10230): Verilog HDL assignment warning at I2C_ctrl.v(114): truncated value with size 10 to match size of target (8) File: D:/FPGA/D5M/I2C_ctrl.v Line: 114
+Info (10264): Verilog HDL Case Statement information at I2C_ctrl.v(41): all case item expressions in this case statement are onehot File: D:/FPGA/D5M/I2C_ctrl.v Line: 41
+Info (10041): Inferred latch for "address_ba[0]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[1]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[2]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[3]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[4]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[5]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[6]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (10041): Inferred latch for "address_ba[7]" at I2C_ctrl.v(20) File: D:/FPGA/D5M/I2C_ctrl.v Line: 20
+Info (12128): Elaborating entity "D5M_rom" for hierarchy "D5M_rom:add2" File: D:/FPGA/D5M/TOP.v Line: 39
+Warning (10030): Net "rom.data_a" at D5M_rom.v(5) has no driver or initial value, using a default initial value '0' File: D:/FPGA/D5M/D5M_rom.v Line: 5
+Warning (10030): Net "rom.waddr_a" at D5M_rom.v(5) has no driver or initial value, using a default initial value '0' File: D:/FPGA/D5M/D5M_rom.v Line: 5
+Warning (10030): Net "rom.we_a" at D5M_rom.v(5) has no driver or initial value, using a default initial value '0' File: D:/FPGA/D5M/D5M_rom.v Line: 5
+Info (13000): Registers with preset signals will power-up high File: D:/FPGA/D5M/divider.v Line: 9
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 200 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 196 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4780 megabytes
+    Info: Processing ended: Sat Dec 08 17:06:34 2018
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:28
 
 

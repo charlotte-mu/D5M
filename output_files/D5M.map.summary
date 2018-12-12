@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Failed - Sun Dec 02 22:33:34 2018
+Analysis & Synthesis Status : Successful - Sat Dec 08 17:06:34 2018
 Quartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Lite Edition
 Revision Name : D5M
 Top-level Entity Name : TOP
 Family : Cyclone IV E
-Total logic elements : N/A until Partition Merge
-    Total combinational functions : N/A until Partition Merge
-    Dedicated logic registers : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total memory bits : N/A until Partition Merge
-Embedded Multiplier 9-bit elements : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
+Total logic elements : 195
+    Total combinational functions : 193
+    Dedicated logic registers : 35
+Total registers : 35
+Total pins : 4
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
